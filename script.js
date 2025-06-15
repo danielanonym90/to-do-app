@@ -24,8 +24,8 @@ class Notes {
     renderizarLista() {
         this._main.innerHTML = ''
         this._tarefas = Object.fromEntries(
-        Object.entries(this._tarefas).filter(([titulo]) => titulo.trim() !== '')
-    )
+            Object.entries(this._tarefas).filter(([titulo]) => titulo.trim() !== '')
+        )
         console.log(this._tarefas)
 
         for (const [titulo, descricao] of Object.entries(this._tarefas)) {
@@ -55,8 +55,14 @@ class Notes {
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
   <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
 </svg>`
+            const newDiv = document.createElement('div')
+            newDiv.classList.add('preview')
 
-            newButton.addEventListener('click', () => {
+            newButton.addEventListener('click', (e) => {
+
+                const card = e.target.closest('.preview')
+                if (card) card.remove()
+                this.removerTarefa(titulo)
                 newDiv.remove()
             })
 
@@ -78,8 +84,7 @@ class Notes {
             actionDiv.appendChild(checkBox)
 
 
-            const newDiv = document.createElement('div')
-            newDiv.classList.add('preview')
+
 
             const textBack = document.createElement('h3')
             const descriptionBack = document.createElement('p')
@@ -104,7 +109,7 @@ class Notes {
 
 
             this._main.appendChild(newDiv)
-            
+
 
 
 
@@ -128,6 +133,12 @@ class Notes {
             document.getElementById('title').value = ''
             document.getElementById('description').value = ''
         }
+
+    }
+    removerTarefa(titulo) {
+        delete this._tarefas[titulo] // remove do objeto de tarefas
+        this.salvarNoLocalStorage()  // atualiza o localStorage
+        this.renderizarLista()
 
     }
 
@@ -168,9 +179,14 @@ class Notes {
   <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
 </svg>`
 
-        newButton.addEventListener('click', () => {
+        newButton.addEventListener('click', (e) => {
+
+            const card = e.target.closest('.preview')
+            if (card) card.remove()
+            this.removerTarefa(titulo)
             newDiv.remove()
         })
+
 
 
 
@@ -230,4 +246,5 @@ notes.onload();
 document.getElementById('create').addEventListener('click', () => { notes.mostrarBtn() })
 document.getElementById('createbtn').addEventListener('click', () => { notes.criarNota() })
 document.getElementById('close').addEventListener('click', () => { notes.fecharBtn() })
+
 
