@@ -156,7 +156,7 @@ body {
 
 @media (max-width: 600px) {
     .preview {
-        width: 80%;
+        width: 70%;
         margin: 0 auto; /* ou 0 se quiser encostar mesmo */
         padding: 15px 30px; /* padding menor no celular */
         border-radius: 30px; /* opcional, para ajustar o visual */
