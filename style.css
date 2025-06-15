@@ -153,16 +153,30 @@ body {
     padding: 5px;
 }
 
+
 @media (max-width: 600px) {
+    .preview {
+        width: 80%;
+        margin: 0 auto; /* ou 0 se quiser encostar mesmo */
+        padding: 15px 30px; /* padding menor no celular */
+        border-radius: 30px; /* opcional, para ajustar o visual */
+    }
 
     body {
-        margin: 0;
+        margin: 0; /* remove margens padrão do body */
+        padding: 0; /* garante que o conteúdo encoste nas bordas */
+    }
+
+    #maincontent {
+        padding: 0; /* zera espaçamentos extras */
     }
 
     .texto {
-        font-size: 15px;
+        font-size: 20px;
     }
+
     .descricao {
         font-size: 10px;
     }
 }
+
