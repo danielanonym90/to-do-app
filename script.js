@@ -147,6 +147,8 @@ class Notes {
 
             document.getElementById('title').value = ''
             document.getElementById('description').value = ''
+
+            this.fecharBtn()
         }
 
     }
