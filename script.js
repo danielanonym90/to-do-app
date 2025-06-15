@@ -9,43 +9,8 @@ class Notes {
         this._tarefas = {}
     }
 
-
-
-
-    onload() {
-
-        const dadosSalvos = localStorage.getItem('tarefas')
-        if (dadosSalvos) {
-            this._tarefas = JSON.parse(dadosSalvos)
-            this.renderizarLista();
-        }
-
-    }
-    renderizarLista() {
-        this._main.innerHTML = ''
-        this._tarefas = Object.fromEntries(
-            Object.entries(this._tarefas).filter(([titulo]) => titulo.trim() !== '')
-        )
-        console.log(this._tarefas)
-
-        for (const [titulo, descricao] of Object.entries(this._tarefas)) {
-            /* const div = document.createElement('div')
-             div.classList.add('preview')
- 
-             const h3 = document.createElement('h3')
-             
- 
-             const p = document.createElement('p')
-             
- 
-             div.appendChild(h3)
-             div.appendChild(p)
- 
-             this._main.appendChild(div) */
-
-
-
-            //Comeca aqui 
+    _criarNotaDOM (titulo, descricao) {
+          //Comeca aqui 
             const actionDiv = document.createElement('div')
             actionDiv.classList.add('actions')
 
@@ -95,8 +60,7 @@ class Notes {
             textBack.innerText = titulo
             descriptionBack.innerText = descricao
 
-            this._tarefas[textBack.innerText] = descriptionBack.innerText
-            this.salvarNoLocalStorage()
+            
 
 
             const div1 = document.createElement('div')
@@ -109,6 +73,32 @@ class Notes {
 
 
             this._main.appendChild(newDiv)
+
+
+    }
+
+
+
+
+    onload() {
+
+        const dadosSalvos = localStorage.getItem('tarefas')
+        if (dadosSalvos) {
+            this._tarefas = JSON.parse(dadosSalvos)
+            this.renderizarLista();
+        }
+
+    }
+    renderizarLista() {
+        this._main.innerHTML = ''
+        this._tarefas = Object.fromEntries(
+            Object.entries(this._tarefas).filter(([titulo]) => titulo.trim() !== '')
+        )
+        console.log(this._tarefas)
+
+        for (const [titulo, descricao] of Object.entries(this._tarefas)) {
+           
+            this._criarNotaDOM(titulo, descricao)
 
 
 
