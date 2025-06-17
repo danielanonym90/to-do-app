@@ -1,109 +1,144 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: black;
-    color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: white;
 }
 
 #maincontent {
-    align-items: center;
+  align-items: center;
 }
 
 #create {
-    cursor: pointer;
-    transition: 0.2s ease; 
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 #create:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.buttonedit {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+.buttonedit:hover {
+  text-decoration: underline;
+}
+
+.div1 {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  text-align: left;
+}
+.edit-title {
+  margin-top: 10px;
+  font-size: 20px;
+}
+.edit-desc {
+  font-size: 15px;
+}
+.edit-title,
+.edit-desc {
+  font-weight: bold;
+
+  outline: none;
+  background-color: transparent;
+  color: white;
+  border: none;
+  margin-bottom: 10px;
 }
 
 .preview {
+  background-color: rgb(19, 19, 19);
+  width: 50%;
+  padding: 10px 30px;
+  margin: 0 auto;
+  border-radius: 30px;
+  margin-bottom: 20px;
 
-    background-color: rgb(19, 19, 19);
-    width: 50%;
-    padding: 10px 30px;
-    margin: 0 auto;
-    border-radius: 30px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    transition: 0.2s ease;
-
-
-
-
+  transition: 0.2s ease;
 }
 .preview:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 .buttonDelete {
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 .actions {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .content {
-    position: relative;
-    padding: 0 20px;
-    align-items: center;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-
+  position: relative;
+  padding: 0 20px;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #cretenote {
-    cursor: pointer;
-    transition: 0.5s ease;
-
+  cursor: pointer;
+  transition: 0.5s ease;
 }
 
 #cretenote:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
+}
+#checkbox,
+#buttonDelete {
+  cursor: pointer;
+}
+.checkbox {
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 #pop-up {
-    background-color: rgb(19, 19, 19);
-    width: fit-content;
-    padding: 20px;
-    border-radius: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    backdrop-filter: blur(100px);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;    
-    gap: 30px;
-
+  background-color: rgb(19, 19, 19);
+  width: fit-content;
+  padding: 20px;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(100px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
 }
 #createbtn {
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.2s ease;
-
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 #description::placeholder {
-    color: white;
+  color: white;
 }
 #description {
-    background-color: transparent;
-    color: white;
-    outline: none;
-    border: solid 1px rgb(89, 89, 89);
-
+  background-color: transparent;
+  color: white;
+  outline: none;
+  border: solid 1px rgb(89, 89, 89);
 }
 #createbtn:hover {
-    transform: scale(1.1);    
+  transform: scale(1.1);
 }
 .esconder {
   animation: hideToLeft 0.5s forwards ease;
@@ -121,63 +156,66 @@ body {
 }
 
 #blur {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    /* Fundo semi-transparente */
-    backdrop-filter: blur(10px);
-    /* Desfoque do conteúdo atrás */
-    -webkit-backdrop-filter: blur(10px);
-    /* Safari */
-    border-radius: 10px;
-    z-index: 1;
-
-
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  /* Fundo semi-transparente */
+  backdrop-filter: blur(10px);
+  /* Desfoque do conteúdo atrás */
+  -webkit-backdrop-filter: blur(10px);
+  /* Safari */
+  border-radius: 10px;
+  z-index: 1;
 }
 
 #pop-up input {
-    color: white;
-    outline: none;
-    padding: 5px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid white;
+  color: white;
+  outline: none;
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
 }
 
 #pop-up button {
-    padding: 5px;
+  padding: 5px;
 }
-
 
 @media (max-width: 600px) {
-    .preview {
-        width: 70%;
-        margin: 0 auto; /* ou 0 se quiser encostar mesmo */
-        padding: 15px 30px; /* padding menor no celular */
-        border-radius: 30px; /* opcional, para ajustar o visual */
-        margin-bottom: 20px;
-    }
+  .preview {
+    width: 70%;
+    margin: 0 auto; /* ou 0 se quiser encostar mesmo */
+    padding: 15px 30px; /* padding menor no celular */
+    border-radius: 30px; /* opcional, para ajustar o visual */
+    margin-bottom: 20px;
+  }
 
-    body {
-        margin: 0; /* remove margens padrão do body */
-        padding: 0; /* garante que o conteúdo encoste nas bordas */
-    }
+  body {
+    margin: 0; /* remove margens padrão do body */
+    padding: 0; /* garante que o conteúdo encoste nas bordas */
+  }
 
-    #maincontent {
-        padding: 0; /* zera espaçamentos extras */
-    }
+  #maincontent {
+    padding: 0; /* zera espaçamentos extras */
+  }
 
-    .texto {
-        font-size: 15px;
-    }
+  .texto {
+    font-size: 15px;
+  }
 
-    .descricao {
-        font-size: 10px;
-    }
+  .descricao {
+    font-size: 10px;
+  }
+
+  .edit-title {
+    font-size: 15px;
+  }
+  .edit-desc {
+    font-size: 10px;
+  }
 }
-
