@@ -19,8 +19,8 @@ class Notes {
     descriptionBack.innerText = descricao;
 
     //Comeca aqui
-    const actionDiv = document.createElement("div");
-    actionDiv.classList.add("actions");
+    // const actionDiv = document.createElement("div");
+    // actionDiv.classList.add("actions");
 
     const newButton = document.createElement("button");
     newButton.classList.add("buttonDelete");
@@ -128,7 +128,7 @@ class Notes {
 
     newDiv.appendChild(top);
     newDiv.appendChild(div1);
-    newDiv.appendChild(actionDiv);
+    //newDiv.appendChild(actionDiv);
 
     this._main.appendChild(newDiv);
   }
